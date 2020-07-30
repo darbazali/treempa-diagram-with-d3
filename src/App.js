@@ -8,12 +8,13 @@ const movieDataURL = "https://cdn.freecodecamp.org/testable-projects-fcc/data/tr
 
 let movieData;
 
-const container = d3.select('#container');
+const container = d3
+    .select('#container');
 
 const canvas = container
     .append('svg')
-    .attr('width', 800)
-    .attr('height', 500)
+    .attr('width', 1200)
+    .attr('height', 800)
 
 
 const fillCells = movie => {
