@@ -66,6 +66,15 @@ const drawTreeMap = () => {
         .attr('data-name', movie => movie.data.name)
         .attr('data-category', movie => movie.data.category)
         .attr('data-value', movie => movie.data.value)
+
+
+        // set text
+    block
+        .append('text')
+        .text( movie => movie.data.name)
+        .attr('x', 5)
+        .attr('y', 20)
+        .style('font-size', 8)
     
 }
 
