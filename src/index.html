@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Treemap Diagram With D3</title>
 </head>
 <body>
     <div id="container">
-        <h1 id="title">Video Game Sales</h1>
+        <h1 id="title">Highest Grossing Movies</h1>
         <div id="description">
-            <p>Top 100 Most Sold Video Games Grouped by Platform</p>
+            <p>Top 100 Highest Grossing Movies</p>
         </div>
 
-        
-        <svg id='legend'>
+        <svg id="canvas"></svg>
+        <svg id='legend' width='140', height="400">
             <g>
                 <rect class="legend-item" x="10" y="0" width="40" height="40" fill="orange"></rect>
                 <text x="60" y="20" fill="black">Action</text>

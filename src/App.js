@@ -11,10 +11,9 @@ let movieData;
 const container = d3
     .select('#container');
 
-const canvas = container
-    .append('svg')
-    .attr('width', 1200)
-    .attr('height', 800)
+const canvas = container.select('#canvas')
+    .attr('width', 800)
+    .attr('height', 400)
 
 const tooltip = container
     .append('div')
@@ -30,8 +29,8 @@ const drawTooltip = (movie, tooltip) => {
 
     tooltip
         .style('opacity', 1)
-        .style('left', `${d3.event.layerX}px`)
-        .style('top', `${d3.event.layery}px`)
+        .style('left', `${d3.event.layerX + 20}px`)
+        .style('top', `${d3.event.layerY + 40}px`)
 
         .html(`$ ${revenue} <br/> ${movie.data.name}`)
         .attr('data-value', movie.data.value)
@@ -65,7 +64,7 @@ const drawTreeMap = () => {
 
     const createTreeMap = d3
         .treemap()
-        .size([1000, 600])
+        .size([800, 400])
 
     createTreeMap(hierarchy)
 
@@ -97,7 +96,7 @@ const drawTreeMap = () => {
 
         .on('mouseenter', movie => drawTooltip(movie, tooltip))
         .on('mouseout', () => {
-            tooltip.transition()
+            tooltip
                 .style('opacity', 0)
         })
 
@@ -108,6 +107,7 @@ const drawTreeMap = () => {
         .text( movie => movie.data.name)
         .attr('x', 5)
         .attr('y', 20)
+        .attr('width', 40)
         .style('font-size', 8)
     
 }

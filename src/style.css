@@ -1,3 +1,4 @@
+
 body {
     color: hsl(0, 0%, 21%);
     font-family: Arial, Helvetica, sans-serif;
@@ -5,6 +6,55 @@ body {
     margin: 0;
 }
 
+
+* {
+    font-family: Helvetica, sans-serif;
+}
+
+h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+#description {
+    margin-bottom: 2rem;
+}
+
+#container {
+    width: 90vw;
+    margin: 1.5rem auto;
+    text-align: center;
+    position: relative;
+}
+
 #tooltip {
     opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    background-color: rgb(235, 225, 168);
+    color: #000000;
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+#author {
+    text-align: center;
+    opacity: 0.9;
+}
+
+svg#canvas {
+    position: absolute;
+    right: 0;
+}
+svg#legend {
+    position: absolute;
+    left: 0;
+}
+
+@media ( max-width: 1400px) {
+    h1 {
+        font-size: 2rem;
+    }
 }
