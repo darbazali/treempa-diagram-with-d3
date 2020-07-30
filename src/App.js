@@ -16,7 +16,30 @@ const canvas = container
     .attr('width', 1200)
     .attr('height', 800)
 
+const tooltip = container
+    .append('div')
+    .attr('id', 'tooltip')
 
+/*============================================
+    TOOLTIP DRAWER
+=============================================*/
+const drawTooltip = (movie, tooltip) => {
+
+    let revenue = movie['data']['value'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+
+
+    tooltip
+        .style('opacity', 1)
+        .style('left', `${d3.event.layerX}px`)
+        .style('top', `${d3.event.layery}px`)
+
+        .html(`$ ${revenue} <br/> ${movie.data.name}`)
+        .attr('data-value', movie.data.value)
+}
+
+/*============================================
+    CELL FILLER FUNCTION
+=============================================*/
 const fillCells = movie => {
     let category = movie.data.category;
 
@@ -29,6 +52,10 @@ const fillCells = movie => {
     else if (category === 'Biography') { return 'tan' }
 }
 
+
+/*============================================
+    MAP DRAWER FUNCTION
+=============================================*/
 const drawTreeMap = () => {
 
     const hierarchy = d3
@@ -67,6 +94,12 @@ const drawTreeMap = () => {
         .attr('data-name', movie => movie.data.name)
         .attr('data-category', movie => movie.data.category)
         .attr('data-value', movie => movie.data.value)
+
+        .on('mouseenter', movie => drawTooltip(movie, tooltip))
+        .on('mouseout', () => {
+            tooltip.transition()
+                .style('opacity', 0)
+        })
 
 
         // set text

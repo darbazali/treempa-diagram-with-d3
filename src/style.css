@@ -5,3 +5,6 @@ body {
     margin: 0;
 }
 
+#tooltip {
+    opacity: 0;
+}
